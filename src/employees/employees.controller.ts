@@ -32,7 +32,10 @@ export class EmployeesController {
     @Ip() ip: string, // get the ip address of the client
     @Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN', // get the role query parameter. optional
   ) {
-    this.logger.log(`Request for ALL EMPLOYEES\t${ip}`);
+    this.logger.log(
+      `Request for ALL EMPLOYEES\t${ip}`,
+      EmployeesController.name,
+    );
     // logs to a file only when the request is made to this route
     return this.employeesService.findAll(role);
   }
